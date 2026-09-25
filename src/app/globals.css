@@ -1,3 +1,24 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+  --color-accent: #ccff00;
+  --color-dark-bg: #0e1117;
+  --color-card-bg: #161b22;
+  --color-border-color: #21262d;
+}
+
+
+:root {
+  --p: 72 100% 50%;
+  --a: 72 100% 50%;
+}
+
+
+.bg-accent {
+  background-color: #ccff00 !important;
+}
+
+.text-accent {
+  color: #ccff00 !important;
+}
