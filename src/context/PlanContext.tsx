@@ -17,12 +17,10 @@ interface PlanContextType {
 const PlanContext = createContext<PlanContextType | undefined>(undefined);
 
 export const PlanProvider = ({ children }: { children: React.ReactNode }) => {
-  // Start with empty arrays to match server rendering and prevent hydration mismatches
   const [plan, setPlan] = useState<Workout[]>([]);
   const [saved, setSaved] = useState<Workout[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Load from localStorage safely on client mount
   useEffect(() => {
     const savedPlan = localStorage.getItem('fitlog_plan');
     const savedList = localStorage.getItem('fitlog_saved');
@@ -31,7 +29,6 @@ export const PlanProvider = ({ children }: { children: React.ReactNode }) => {
     setIsInitialized(true);
   }, []);
 
-  // Save to localStorage only after initialization
   useEffect(() => {
     if (isInitialized) {
       localStorage.setItem('fitlog_plan', JSON.stringify(plan));

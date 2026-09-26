@@ -25,7 +25,6 @@ export default function Hero() {
         </a>
       </div>
       <div className="w-full md:w-1/3 flex justify-center">
-        {/* Banner Image Container */}
         <div className="relative w-72 h-72 flex items-center justify-center">
           <Image
             src={bannerImage}

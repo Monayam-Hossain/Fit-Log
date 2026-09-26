@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <header className="bg-dark-bg border-b border-border-color sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
+
         <Link
           href="/"
           className="flex items-center space-x-2 text-xl font-bold tracking-wider text-white"
@@ -31,7 +31,6 @@ export default function Navbar() {
           <span>FITLOG</span>
         </Link>
 
-        {/* Center Nav Links */}
         <nav className="flex space-x-2">
           <Link
             href="/"
@@ -55,7 +54,6 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Right Badges */}
         <div className="flex items-center space-x-3 text-xs font-semibold">
           <Link
             href="/my-plan"
