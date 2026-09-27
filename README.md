@@ -1,4 +1,3 @@
-&lt;div align="center"&gt;
 
 # 💪 FitLog
 ### Your Gym Companion & Workout Tracker
@@ -18,7 +17,7 @@ master the technique, and crush your daily plan — all from one beautiful dashb
 
 [🚀 Quick Start](#-getting-started) · [✨ Features](#-key-features) · [🛠 Tech Stack](#-tech-stack)
 
-&lt;/div&gt;
+
 
 ---
 
