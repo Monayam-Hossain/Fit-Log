@@ -16,9 +16,7 @@ export default function WorkoutDetailsPage() {
   useEffect(() => {
     async function fetchWorkoutDetails() {
       try {
-        const res = await fetch(
-          `https://api.abcz.workers.dev/api/fitlog/${id}`,
-        );
+        const res = await fetch(`/api/workouts?id=${id}`);
         if (!res.ok) throw new Error("Not found");
         const data = await res.json();
         setWorkout(data);
@@ -48,25 +46,22 @@ export default function WorkoutDetailsPage() {
     );
   }
 
-  // Check if current workout is already in the plan or saved list
   const isInPlan = plan.some((item) => item.id === workout.id);
   const isSaved = saved.some((item) => item.id === workout.id);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-      {/* Left Side: Visual Image Tag */}
       <div className="bg-card-bg border border-border-color rounded-2xl overflow-hidden flex items-center justify-center p-4">
         <Image
           src={workout.image}
           alt={workout.name}
           width={500}
           height={450}
-          className="w-full h-[450px] object-cover rounded-xl"
+          className="w-full object-cover rounded-xl"
           priority
         />
       </div>
 
-      {/* Right Side: Details */}
       <div className="flex flex-col">
         <h1 className="text-3xl font-black text-white uppercase tracking-wider mb-2">
           {workout.name}
@@ -75,7 +70,6 @@ export default function WorkoutDetailsPage() {
           {workout.description}
         </p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {workout.muscleGroups.map((group, i) => (
             <span
@@ -87,7 +81,6 @@ export default function WorkoutDetailsPage() {
           ))}
         </div>
 
-        {/* Specs Table */}
         <div className="bg-card-bg border border-border-color rounded-xl p-4 mb-6 text-xs divide-y divide-gray-800">
           <div className="flex justify-between py-2">
             <span className="text-gray-500 uppercase font-bold">Equipment</span>
@@ -125,7 +118,6 @@ export default function WorkoutDetailsPage() {
           </div>
         </div>
 
-        {/* Instructions */}
         <div className="mb-8">
           <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
             INSTRUCTIONS
@@ -140,7 +132,6 @@ export default function WorkoutDetailsPage() {
           </ol>
         </div>
 
-        {/* Action Buttons with Dynamic Text Change */}
         <div className="flex items-center gap-4">
           <button
             onClick={() => addToPlan(workout)}
